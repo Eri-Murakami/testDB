@@ -31,30 +31,153 @@ public class TestUserDAO {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		}
-	
-	//⑤
-	
-	public void selectAll() {
-		DBConnentor db = new DBConnentor();
-		Connection con = db.getConnection();
-		
-		String sql ="select * from test_table";
-		try {
-			PreparedStatement ps = con.prepareStatement(sql);
-			ResultSet rs = ps.executeQuery();
-			while(rs.next()) {
-				System.out.println(rs.getString("user_name"));
-				System.out.println(rs.getString("password"));
-			}
-		}catch(SQLException e) {
-			e.printStackTrace();
-			try {
-				con.close();
-			}catch(SQLException e) {
-				e.printStackTrace();
-			}
-			}
-		
 	}
+	
+//⑤
+	//public void selectAll() {
+	//DBConnentor db = new DBConnentor();
+	//Connection con = db.getConnection();
+		
+	//String sql ="select * from test_table";
+	//try {
+	//PreparedStatement ps = con.prepareStatement(sql);
+	//ResultSet rs = ps.executeQuery();
+	//while(rs.next()) {
+	//System.out.println(rs.getString("user_name"));
+	//System.out.println(rs.getString("password"));
+	//}
+	//}catch(SQLException e) {
+	//e.printStackTrace();
+			//}	
+			//try {
+			//	con.close();
+			//}catch(SQLException e) {
+			//		e.printStackTrace();
+			//}
+		
+			//}
+
+//⑦
+			//public void selectByName (String name) {
+			//DBConnentor db = new DBConnentor();
+			//	Connection con = db.getConnection();
+    	//	
+			//String sql = "select * from test_table where user_name=?";
+			//try {
+			//	PreparedStatement ps = con.prepareStatement(sql);
+			//	ps.setString(1,name);
+			//	ResultSet rs = ps.executeQuery();
+			//	while(rs.next()) {
+    			//		System.out.println(rs.getString("user_name"));
+			//		System.out.println(rs.getString("password"));
+			//	}
+			//}catch(SQLException e) {
+			//	e.printStackTrace();
+			//}	
+			//try {
+			//	con.close();
+			//}catch(SQLException e) {
+			//		e.printStackTrace();
+			//	}
+	
+			// }
+    
+ //⑨
+			// public void selectByPassword (String password) {
+			//	DBConnentor db = new DBConnentor();
+			//	Connection con = db.getConnection();
+    	
+			//	String sql = "select * from test_table where password=?";
+    	//	try {
+			//	PreparedStatement ps = con.prepareStatement(sql);
+			//	ps.setString(1,password);
+    		//	ResultSet rs = ps.executeQuery();
+    		//	while(rs.next()) {
+			//		System.out.println(rs.getString("user_name"));
+				//		System.out.println(rs.getString("password"));
+			//}
+    		//}catch(SQLException e) {
+			//	e.printStackTrace();
+			//	}	
+			//	try {
+			//		con.close();
+			//	}catch(SQLException e) {
+			//			e.printStackTrace();
+			//			}
+	
+			// }
+ 
+ //⑪
+			//public void updateUserNameByUserName (String oldName,String newName) {
+			//	DBConnentor db = new DBConnentor();
+    	//	Connection con = db.getConnection();
+    	
+			// 	String sql = "update test_table set user_name=? where user_name=?";
+    	//	try {
+			//		PreparedStatement ps = con.prepareStatement(sql);
+			//		ps.setString(1,newName);
+			//		ps.setString(2,oldName);
+			//	int i=ps.executeUpdate();
+			//	if(i>0) {
+    			//		System.out.println(i+"件更新されました");
+			//	}else {
+			//		System.out.println("該当するデータはありませんでした");
+				//	}
+    		//	}catch(SQLException e) {
+    		//		e.printStackTrace();
+			//	}	
+    	//	try {
+			//		con.close();
+			//	}catch(SQLException e) {
+			//			e.printStackTrace();
+				//			}
+	
+		//  }
+    
+//⑬
+    //public void insert (int user_id,String name,String password) {
+    //	DBConnentor db = new DBConnentor();
+    //	Connection con = db.getConnection();
+    //	
+    //	String sql = "insert into test_table values(?,?,?)";
+    	//	try {
+    		//		PreparedStatement ps = con.prepareStatement(sql);
+    //		ps.setInt(1,user_id);
+    		//		ps.setString(2,name);
+    		//		ps.setString(3,password);
+    //	int i=ps.executeUpdate();
+    		//		if(i>0) {
+    //		System.out.println(i+"件登録されました");}
+    //			}catch(SQLException e) {
+    //			e.printStackTrace();
+    //			}
+    //	try {
+			//		con.close();
+    //	}catch(SQLException e) {
+    //			e.printStackTrace();
+				//			}
+				//	}	
+
+//⑮
+   // public void delete (String name) {
+    //DBConnentor db = new DBConnentor();
+    //Connection con = db.getConnection();
+    	
+    //String sql = "delete from test_table where user_name=?";
+    //try {
+    //PreparedStatement ps = con.prepareStatement(sql);
+    //ps.setString(1,name);
+    //	int i=ps.executeUpdate();
+    //		if(i>0) {
+    			//		System.out.println(i+"件削除されました");}
+    //			}catch(SQLException e) {
+    //			e.printStackTrace();
+    			//		}
+    //	try {
+    //		con.close();
+    //	}catch(SQLException e) {
+    //	e.printStackTrace();
+    //		}
+    //}	
+    //}
 }
