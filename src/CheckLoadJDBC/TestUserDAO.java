@@ -1,0 +1,60 @@
+package CheckLoadJDBC;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class TestUserDAO {
+	
+	String name ="";
+	String password ="";
+	public void select(String name,String password) {
+		DBConnentor db = new DBConnentor();
+		Connection con = db.getConnection();
+		
+		String sql ="select * from test_table where user_name=? and pasword=?";
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1,name);
+			ps.setString(2,password);
+			ResultSet rs=ps.executeQuery();
+			if(rs.next()) {
+				System.out.println(rs.getString("user_name"));
+				System.out.println(rs.getString("password"));
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			con.close();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		}
+	
+	//⑤
+	
+	public void selectAll() {
+		DBConnentor db = new DBConnentor();
+		Connection con = db.getConnection();
+		
+		String sql ="select * from test_table";
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				System.out.println(rs.getString("user_name"));
+				System.out.println(rs.getString("password"));
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+			try {
+				con.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+			}
+		
+	}
+}
